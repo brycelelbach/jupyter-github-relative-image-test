@@ -1,23 +1,22 @@
-# Image Rendering Test
+# Image Rendering Test: LFS vs Non-LFS
 
-This repo tests whether relative image paths render on GitHub in notebooks vs Markdown.
+This repo tests whether Git LFS breaks image rendering in GitHub's notebook viewer.
 
-No Git LFS is used -- images are regular git objects.
+- `images/test.png` -- green, **regular git object** (not LFS)
+- `images/lfs-test.png` -- blue, **Git LFS tracked**
 
-## Markdown control test: relative path
+## Markdown control: regular git object (green)
 
-![test image](images/test.png)
+![green non-lfs](images/test.png)
 
-## Markdown control test: relative path with ./
+## Markdown control: Git LFS tracked (blue)
 
-![test image](./images/test.png)
-
-## Markdown control test: HTML img tag
-
-<img src="images/test.png" alt="test image" width="400"/>
-
-If any of the above show a green rectangle, relative paths work in Markdown.
+![blue lfs](images/lfs-test.png)
 
 ## Notebook test
 
-See [test.ipynb](test.ipynb) for the notebook version of the same tests.
+See [test.ipynb](test.ipynb) for the same two images rendered in a notebook.
+
+---
+
+If you see both colors in the README but only green in the notebook, Git LFS is the problem.
